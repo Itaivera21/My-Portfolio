@@ -1,213 +1,487 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills</title>
+    <title>Skills | Itai Vera</title>
     <style>
-        body {
-            background-image: url("Images/annie-spratt-0ZPSX_mQ3xI-unsplash.jpg");
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: aliceblue;
+            font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
         }
 
         header {
+            background-color: aliceblue;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
             display: flex;
-            flex-direction: column; /* stack name and nav vertically */
-            align-items: center;    /* center them horizontally */
-            padding: 20px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        header span {
-            color: orangered;
-            font-size: 36px; /* larger name */
-            font-weight: bold;
-            margin-bottom: 10px;
+        .name h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #1a2a3a;
+            white-space: nowrap;
         }
 
-        .navigationBar {
+        .navlinks {
             display: flex;
-            gap: 20px;
-            justify-content: center; /* center nav links */
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .navigationBar a {
+        .navlinks .box a {
             text-decoration: none;
-            font-size: 20px;
-            color: #0A1F44;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #1e2f3f;
+            padding: 0.4rem 0;
+            transition: color 0.2s ease;
+            position: relative;
         }
 
-        .navigationBar a:hover {
-            color: orangered;
+        .navlinks .box a:hover {
+            color: #0056b3;
         }
 
-        #skills {
-            font-size: 30px;
-            color: #0a3d62;
+        .navlinks .box a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #0056b3;
+            transition: width 0.25s ease;
+        }
+
+        .navlinks .box a:hover::after {
+            width: 100%;
+        }
+
+        .navlinks .box a.active {
+            color: #0056b3;
+        }
+
+        .navlinks .box a.active::after {
+            width: 100%;
+        }
+
+        .socials {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, opacity 0.2s;
+            border-radius: 50%;
+        }
+
+        .socials a:hover {
+            transform: scale(1.1);
+            opacity: 0.85;
+        }
+
+        .socials img {
+            height: 28px;
+            width: 28px;
             display: block;
-            text-align: center;
-            margin: 30px 0;
+            object-fit: contain;
         }
 
-        #skills:hover {
-            color: coral;
+        .skills-header {
+            text-align: center;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .skills-header h1 {
+            font-size: 2.5rem;
+            color: #1f3b4c;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-header p {
+            font-size: 1.1rem;
+            color: #2c4c6e;
         }
 
         .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap; /* allows stacking on smaller screens */
-            padding: 20px;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .division {
-            width: 350px;
+            flex: 1;
+            min-width: 280px;
+            background: white;
             border-radius: 20px;
-            padding: 15px;
+            padding: 2rem;
             text-align: center;
-            background: rgba(255,255,255,0.6); /* subtle background for readability */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .division:hover {
-            backdrop-filter: blur(15px);
-            border-style: solid;
-            border-color: #0a3d62;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
-        h3 {
-            color: #0a3d62;
+        .division-icon {
+            height: 50px;
+            width: 50px;
+            object-fit: contain;
+            margin-bottom: 1rem;
         }
 
-        ul {
+        .division h3 {
+            font-size: 1.5rem;
+            color: #1f3b4c;
+            margin-bottom: 1rem;
+        }
+
+        .division h4 {
+            font-size: 1.1rem;
+            color: #0056b3;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .division ul {
             text-align: left;
-            padding-left: 20px;
+            padding-left: 1.2rem;
+            margin: 1rem 0;
         }
 
-        ul li {
-            margin-bottom: 10px;
+        .division ul li {
+            color: #2c4c6e;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
         }
 
-        img {
-            margin: 5px;
+        .icon-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
         }
 
-        /* Media Queries for responsiveness */
+        .icon-row img {
+            height: 35px;
+            width: 35px;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+
+        .icon-row img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #cfe7ff;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-section h4 {
+            color: #1f3b4c;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            text-decoration: none;
+            color: #1f3b4c;
+            font-size: 0.85rem;
+            transition: transform 0.2s ease, color 0.2s;
+        }
+
+        .footer-social-links a:hover {
+            transform: scale(1.05);
+            color: #0056b3;
+        }
+
+        .footer-social-links img {
+            height: 20px;
+            width: 20px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: row;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .contact-item img {
+            height: 18px;
+            width: 18px;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: #1f3b4c;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: #0056b3;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(31, 59, 76, 0.2);
+            color: #1f3b4c;
+            font-size: 0.75rem;
+        }
+
         @media (max-width: 768px) {
-            .navigationBar {
+            .navbar {
                 flex-direction: column;
-                gap: 10px;
-                margin-top: 10px;
+                padding: 1rem;
             }
 
-            #skills {
-                font-size: 24px;
-                margin: 20px 0;
+            .name h3 {
+                text-align: center;
+            }
+
+            .navlinks {
+                gap: 1.2rem;
+            }
+
+            .navlinks .box a {
+                font-size: 1rem;
+            }
+
+            .socials {
+                justify-content: center;
+            }
+
+            .skills-header h1 {
+                font-size: 2rem;
             }
 
             .container {
-                flex-direction: column;
-                align-items: center;
+                padding: 0 1rem;
+                gap: 1.5rem;
             }
 
             .division {
-                width: 90%;
-                margin-bottom: 20px;
+                padding: 1.5rem;
             }
 
-            .division h3 {
-                font-size: 22px;
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
             }
 
-            .division ul li {
-                font-size: 14px;
+            .contact-details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            header span {
-                font-size: 28px;
+            .navlinks {
+                gap: 0.8rem;
+                justify-content: center;
             }
 
-            .navigationBar a {
-                font-size: 16px;
+            .navlinks .box a {
+                font-size: 0.9rem;
             }
 
-            #skills {
-                font-size: 20px;
+            .skills-header h1 {
+                font-size: 1.6rem;
             }
 
-            .division {
-                width: 100%;
-                padding: 10px;
+            .skills-header p {
+                font-size: 0.9rem;
             }
 
             .division h3 {
-                font-size: 18px;
+                font-size: 1.3rem;
             }
 
-            .division ul li {
-                font-size: 13px;
+            footer {
+                padding: 0.8rem 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <span id="skills">Skills</span>
     <header>
-        <span>Itai Vera</span>
-        <nav class="navigationBar">
-            <div class="box"><a href="Index.html">Home</a></div>
-            <div class="box"><a href="About.html">About</a></div>
-            <div class="box"><a href="Skills.html">Skills</a></div>
-            <div class="box"><a href="Projects.html">Projects</a></div>
-            <div class="box"><a href="Contact.html">Contact</a></div>  
+        <nav class="navbar">
+            <div class="name">
+                <h3>Itai Vera</h3>
+            </div>
+
+            <div class="navlinks">
+                <div class="box"><a href="index.html">Home</a></div>
+                <div class="box"><a href="about.html">About</a></div>
+                <div class="box"><a href="skills.html" class="active">Skills</a></div>
+                <div class="box"><a href="projects.html">Projects</a></div>
+                <div class="box"><a href="contact.html">Contact</a></div>
+            </div>
+
+            <div class="socials">
+                <a href="https://www.facebook.com/itai.vera.2025"><img src="Icons/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/rourbsey21/"><img src="Icons/instagram.png" alt="Instagram"></a>
+                <a href="https://github.com/Itaivera21"><img src="Icons/github.png" alt="Github"></a>
+            </div>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="division">
-            <img src="Icons/developer.png" style="height: 40px;width: 40px;">
-            <h3>Technical Skills</h3>
-            <h4>Programming languages</h4>
-            <ul>
-                <li>Java (Familiar): Object-oriented concepts and basic application development</li>
-                <li>HTML/CSS (Familiar): Building responsive web pages and this portfolio site</li>
-                <li>Python (Beginner): A versatile language I'm adding to my skill set</li>
-            </ul>
-            <img src="Icons/java.png" style="height: 40px;width: 40px;">
-            <img src="Icons/html-5.png" style="height: 40px;width: 40px;">
-            <img src="Icons/python.png" style="height: 40px;width: 40px;">
+    <main>
+        <div class="skills-header">
+            <h1>My Skills</h1>
+            <p>What I bring to the table — technical expertise and soft skills</p>
         </div>
 
-        <div class="division">
-            <img src="Icons/responsive-design.png" style="height: 40px;width: 40px;">
-            <h3>Tools & Platforms</h3>
-            <ul>
-                <li>Git & Github: Version control; comfortable with branching, merging, and collaborative workflows</li>
-                <li>MySQL (Familiar): Designed and queried databases for university assignments</li>
-                <li>Visual Studio Code: Primary code editor with extensions for efficient development</li>
-            </ul>
-            <img src="Icons/github-sign.png" style="height: 40px;width: 40px;">
-            <img src="Icons/mysql.png" style="height: 40px;width: 40px;">
-            <img src="Icons/visual-studio.png" style="height: 40px;width: 40px;">
-        </div>
+        <div class="container">
+            <div class="division">
+                <img src="Icons/developer.png" class="division-icon" alt="Technical Skills">
+                <h3>Technical Skills</h3>
+                <h4>Programming Languages</h4>
+                <ul>
+                    <li><strong>Java (Familiar):</strong> Object-oriented concepts and basic application development</li>
+                    <li><strong>HTML/CSS (Familiar):</strong> Building responsive web pages and this portfolio site</li>
+                    <li><strong>Python (Beginner):</strong> A versatile language I'm adding to my skill set</li>
+                </ul>
+                <div class="icon-row">
+                    <img src="Icons/java.png" alt="Java">
+                    <img src="Icons/html-5.png" alt="HTML">
+                    <img src="Icons/python.png" alt="Python">
+                </div>
+            </div>
 
-        <div class="division">
-            <img src="Icons/skills.png" style="height: 40px;width: 40px;">
-            <h3>Soft Skills</h3>
-            <ul>
-                <li>Collaborative problem solving: Worked effectively in team projects to debug code and find solutions</li>
-                <li>Adaptive Learning: Quickly mastered new tools and frameworks for different course requirements</li>
-                <li>Technical Communication: Able to explain technical concepts to non-technical classmates</li>
-                <li>Time Management: Balanced multiple programming projects and coursework deadlines successfully</li>
-            </ul>
+            <div class="division">
+                <img src="Icons/responsive-design.png" class="division-icon" alt="Tools">
+                <h3>Tools & Platforms</h3>
+                <ul>
+                    <li><strong>Git & GitHub:</strong> Version control; comfortable with branching, merging, and collaborative workflows</li>
+                    <li><strong>MySQL (Familiar):</strong> Designed and queried databases for university assignments</li>
+                    <li><strong>Visual Studio Code:</strong> Primary code editor with extensions for efficient development</li>
+                </ul>
+                <div class="icon-row">
+                    <img src="Icons/github-sign.png" alt="GitHub">
+                    <img src="Icons/mysql.png" alt="MySQL">
+                    <img src="Icons/visual-studio.png" alt="VS Code">
+                </div>
+            </div>
+
+            <div class="division">
+                <img src="Icons/skills.png" class="division-icon" alt="Soft Skills">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li><strong>Collaborative problem solving:</strong> Worked effectively in team projects to debug code and find solutions</li>
+                    <li><strong>Adaptive Learning:</strong> Quickly mastered new tools and frameworks for different course requirements</li>
+                    <li><strong>Technical Communication:</strong> Able to explain technical concepts to non-technical classmates</li>
+                    <li><strong>Time Management:</strong> Balanced multiple programming projects and coursework deadlines successfully</li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Follow me</h4>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/itai.vera.2025"><img src="Icons/facebook.png" alt="Facebook"> Facebook</a>
+                    <a href="https://www.instagram.com/rourbsey21/"><img src="Icons/instagram.png" alt="Instagram"> Instagram</a>
+                    <a href="https://github.com/Itaivera21"><img src="Icons/github.png" alt="Github"> GitHub</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Get in touch</h4>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <img src="Icons/whatsapp.png" alt="WhatsApp">
+                        <a href="https://wa.me/263713266195" target="_blank">WhatsApp</a>
+                    </div>
+                    <div class="contact-item">
+                        <img src="Icons/gmail.png" alt="Gmail">
+                        <a href="mailto:itaivera21@gmail.com">itaivera21@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© Itai Vera 2026</p>
+        </div>
+    </footer>
 </body>
 </html>
