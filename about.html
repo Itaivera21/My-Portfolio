@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About - Itai Vera</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: aliceblue;
+                font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
+                line-height: 1.6;
+            }
+
+            header {
+                background-color: aliceblue;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+            }
+
+            .navbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: aliceblue;
+                padding: 0.8rem 2rem;
+                flex-wrap: wrap;
+                gap: 1rem;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .name {
+                flex: 0 0 auto;
+            }
+
+            .name h3 {
+                font-size: 1.6rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                color: #1a2a3a;
+                white-space: nowrap;
+            }
+
+            .navlinks {
+                display: flex;
+                gap: 1.8rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .navlinks .box a {
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1.1rem;
+                color: #1e2f3f;
+                padding: 0.4rem 0;
+                transition: all 0.2s ease;
+                position: relative;
+            }
+
+            .navlinks .box a:hover {
+                color: #0056b3;
+            }
+
+            .navlinks .box a::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0%;
+                height: 2px;
+                background-color: #0056b3;
+                transition: width 0.25s ease;
+            }
+
+            .navlinks .box a:hover::after {
+                width: 100%;
+            }
+
+            .navlinks .box a.active {
+                color: #0056b3;
+            }
+
+            .navlinks .box a.active::after {
+                width: 100%;
+            }
+
+            .socials {
+                display: flex;
+                gap: 1.2rem;
+                align-items: center;
+            }
+
+            .socials a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.2s ease, opacity 0.2s;
+                border-radius: 50%;
+            }
+
+            .socials a:hover {
+                transform: scale(1.1);
+                opacity: 0.85;
+            }
+
+            .socials img {
+                height: 28px;
+                width: 28px;
+                display: block;
+                object-fit: contain;
+            }
+
+            main {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+
+            .content-section {
+                background: white;
+                border-radius: 20px;
+                padding: 2rem;
+                margin-bottom: 2rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .content-section:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                color: #1f3b4c;
+                margin-bottom: 1rem;
+            }
+
+            h4 {
+                font-size: 1.2rem;
+                color: #1f3b4c;
+                margin: 1.5rem 0 1rem 0;
+            }
+
+            p {
+                font-size: 1rem;
+                color: #2c4c6e;
+                line-height: 1.6;
+            }
+
+            .skills-list {
+                list-style: none;
+                padding: 0;
+            }
+
+            .skills-list li {
+                margin-bottom: 1rem;
+            }
+
+            .skill-item {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .divIcons {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+                background: #f0f4f8;
+                border-radius: 10px;
+                padding: 8px;
+            }
+
+            .skill-item span {
+                flex: 1;
+                color: #2c4c6e;
+            }
+
+            hr {
+                margin: 1rem 0;
+                border: none;
+                height: 1px;
+                background: #e0e8f0;
+            }
+
+            .soft-skills {
+                list-style: none;
+                padding: 0;
+            }
+
+            .soft-skills li {
+                color: #2c4c6e;
+                margin-bottom: 0.8rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+            .soft-skills li::before {
+                content: "→";
+                color: #0056b3;
+                position: absolute;
+                left: 0;
+            }
+
+            footer {
+                background-color: #cfe7ff;
+                margin-top: 2rem;
+                padding: 1.5rem 2rem;
+                text-align: center;
+                color: #1f3b4c;
+                font-size: 0.9rem;
+            }
+
+            @media (max-width: 768px) {
+                .navbar {
+                    flex-direction: column;
+                    padding: 1rem;
+                }
+                
+                .name h3 {
+                    text-align: center;
+                }
+                
+                .navlinks {
+                    gap: 1.2rem;
+                }
+                
+                .navlinks .box a {
+                    font-size: 1rem;
+                }
+                
+                .socials {
+                    justify-content: center;
+                }
+                
+                main {
+                    padding: 1rem;
+                }
+                
+                .content-section {
+                    padding: 1.5rem;
+                }
+                
+                h3 {
+                    font-size: 1.3rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .navlinks {
+                    gap: 0.8rem;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                
+                .navlinks .box a {
+                    font-size: 0.9rem;
+                }
+                
+                .skill-item {
+                    flex-direction: column;
+                    text-align: center;
+                }
+                
+                .soft-skills li::before {
+                    content: "•";
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="name">
+                    <h3>Itai Vera</h3>
+                </div>
+
+                <div class="navlinks">
+                    <div class="box"><a href="index.html">Home</a></div>
+                    <div class="box"><a href="About.html" class="active">About</a></div>
+                    <div class="box"><a href="Skills.html">Skills</a></div>
+                    <div class="box"><a href="Projects.html">Projects</a></div>
+                    <div class="box"><a href="Contact.html">Contact</a></div>
+                </div>
+
+                <div class="socials">
+                    <a href="#"><img src="Icons/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="Icons/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="Icons/github.png" alt="Github"></a>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="content-section">
+                <h3>1. Introduction</h3>
+                <p>
+                    I'm Itai Vera, a second-year Information Technology student at 
+                    Lupane State University in Matebeleland North, Zimbabwe. I'm 
+                    fascinated by how tech shapes everyday life, from the apps 
+                    we use to the systems that keep the world connected. I enjoy 
+                    exploring new ideas, building solutions, and pushing myself to 
+                    stay ahead in a fast-changing digital world.
+                </p>
+            </section>
+            
+            <section class="content-section">
+                <h3>2. Background & Journey</h3>
+                <p>
+                    My journey into IT began with a curiosity about how systems 
+                    work and how digital solutions can solve everyday problems.
+                    Over time, I've developed skills in programming, networking,
+                    and system design, and I continue to explore new technologies
+                    to expand my knowledge.
+                </p>
+            </section>
+            
+            <section class="content-section">
+                <h3>3. Skills & Strengths</h3>
+                <h4>a) Technical Skills</h4>
+                <ul class="skills-list">
+                    <li>
+                        <div class="skill-item">
+                            <img src="Icons/java.png" class="divIcons" alt="Java icon"> 
+                            <span><strong>Java (Familiar):</strong> Object-oriented concepts and basic application development</span>
+                        </div>
+                    </li>
+                    <hr>
+                    <li>
+                        <div class="skill-item">
+                            <img src="Icons/python.png" class="divIcons" alt="Python icon"> 
+                            <span><strong>Python (Beginner):</strong> A new versatile language that I'm adding to my skills set</span>
+                        </div>
+                    </li>
+                    <hr>
+                    <li>
+                        <div class="skill-item">
+                            <img src="Icons/html-5.png" class="divIcons" alt="HTML icon"> 
+                            <span><strong>HTML/CSS (Familiar):</strong> Building responsive webpages and this portfolio</span>
+                        </div>
+                    </li>
+                    <hr>
+                    <li>
+                        <div class="skill-item">
+                            <img src="Icons/mysql.png" class="divIcons" alt="MySQL icon"> 
+                            <span><strong>MySQL (Familiar):</strong> Designed and queried databases for university assignments</span>
+                        </div>
+                    </li>
+                </ul>
+                
+                <h4>b) Soft Skills</h4>
+                <ul class="soft-skills">
+                    <li>Collaborative problem solving - Worked effectively in team projects to debug code and find solutions</li>
+                    <li>Adaptive Learning - Quickly mastered new tools and frameworks for different course requirements</li>
+                    <li>Technical Communication - Able to explain technical concepts to non-technical classmates</li>
+                    <li>Time Management - Balanced multiple programming projects and coursework deadlines successfully</li>
+                </ul>
+            </section>
+            
+            <section class="content-section">
+                <h3>4. Vision & Goals</h3>
+                <p>
+                    My vision is to use my technical expertise to create innovative 
+                    solutions that contribute to national development. I aim to 
+                    bridge the gap between talent and impact by building projects 
+                    that address real-world challenges.
+                </p>
+            </section>
+            
+            <section class="content-section">
+                <p>
+                    Outside of academics, I enjoy exploring new ideas, collaborating with 
+                    peers, and staying inspired by innovation in technology. I believe in 
+                    continuous growth and making a positive difference wherever I can.
+                </p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2026 Itai Vera. All rights reserved.</p>
+        </footer>
+    </body>
+</html>
