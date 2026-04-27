@@ -15,6 +15,13 @@
                 background-color: aliceblue;
                 font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
                 line-height: 1.6;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            main {
+                flex: 1;
             }
 
             header {
@@ -216,10 +223,92 @@
             footer {
                 background-color: #cfe7ff;
                 margin-top: 2rem;
-                padding: 1.5rem 2rem;
-                text-align: center;
+                padding: 1rem 2rem;
+            }
+
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .footer-section h4 {
                 color: #1f3b4c;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .social-links a {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.3rem;
+                text-decoration: none;
+                color: #1f3b4c;
+                font-size: 0.85rem;
+                transition: transform 0.2s ease, color 0.2s;
+            }
+
+            .social-links a:hover {
+                transform: scale(1.05);
+                color: #0056b3;
+            }
+
+            .social-links img {
+                height: 20px;
+                width: 20px;
+            }
+
+            .contact-details {
+                display: flex;
+                flex-direction: row;
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+            }
+
+            .contact-item img {
+                height: 18px;
+                width: 18px;
+            }
+
+            .contact-item a {
+                text-decoration: none;
+                color: #1f3b4c;
+                font-size: 0.85rem;
+                transition: color 0.2s;
+            }
+
+            .contact-item a:hover {
+                color: #0056b3;
+            }
+
+            .copyright {
+                text-align: center;
+                margin-top: 0.8rem;
+                padding-top: 0.8rem;
+                border-top: 1px solid rgba(31, 59, 76, 0.2);
+                color: #1f3b4c;
+                font-size: 0.75rem;
             }
 
             @media (max-width: 768px) {
@@ -240,10 +329,6 @@
                     font-size: 1rem;
                 }
                 
-                .socials {
-                    justify-content: center;
-                }
-                
                 main {
                     padding: 1rem;
                 }
@@ -254,6 +339,18 @@
                 
                 h3 {
                     font-size: 1.3rem;
+                }
+
+                .footer-container {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 1rem;
+                }
+
+                .contact-details {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 0.5rem;
                 }
             }
 
@@ -276,6 +373,10 @@
                 .soft-skills li::before {
                     content: "•";
                 }
+
+                footer {
+                    padding: 0.8rem 1rem;
+                }
             }
         </style>
     </head>
@@ -288,16 +389,16 @@
 
                 <div class="navlinks">
                     <div class="box"><a href="index.html">Home</a></div>
-                    <div class="box"><a href="About.html" class="active">About</a></div>
-                    <div class="box"><a href="Skills.html">Skills</a></div>
-                    <div class="box"><a href="Projects.html">Projects</a></div>
-                    <div class="box"><a href="Contact.html">Contact</a></div>
+                    <div class="box"><a href="about.html" class="active">About</a></div>
+                    <div class="box"><a href="skills.html">Skills</a></div>
+                    <div class="box"><a href="projects.html">Projects</a></div>
+                    <div class="box"><a href="contact.html">Contact</a></div>
                 </div>
 
                 <div class="socials">
-                    <a href="#"><img src="Icons/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="Icons/instagram.png" alt="Instagram"></a>
-                    <a href="#"><img src="Icons/github.png" alt="Github"></a>
+                    <a href="https://www.facebook.com/itai.vera.2025"><img src="Icons/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/rourbsey21/"><img src="Icons/instagram.png" alt="Instagram"></a>
+                    <a href="https://github.com/Itaivera21"><img src="Icons/github.png" alt="Github"></a>
                 </div>
             </nav>
         </header>
@@ -388,7 +489,33 @@
         </main>
         
         <footer>
-            <p>© 2026 Itai Vera. All rights reserved.</p>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h4>Follow me</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/itai.vera.2025"><img src="Icons/facebook.png" alt="Facebook"> Facebook</a>
+                        <a href="https://www.instagram.com/rourbsey21/"><img src="Icons/instagram.png" alt="Instagram"> Instagram</a>
+                        <a href="https://github.com/Itaivera21"><img src="Icons/github.png" alt="Github"> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Get in touch</h4>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <img src="Icons/whatsapp.png" alt="WhatsApp">
+                            <a href="https://wa.me/263713266195" target="_blank">WhatsApp</a>
+                        </div>
+                        <div class="contact-item">
+                            <img src="Icons/gmail.png" alt="Gmail">
+                            <a href="mailto:itaivera21@gmail.com">itaivera21@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© Itai Vera 2026</p>
+            </div>
         </footer>
     </body>
 </html>
