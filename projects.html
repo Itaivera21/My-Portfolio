@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Itai Vera | Portfolio</title>
+    <title>Itai Vera | Projects</title>
     <style>
         * {
             margin: 0;
@@ -15,6 +15,13 @@
             background-color: aliceblue;
             font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
         }
 
         header {
@@ -95,6 +102,14 @@
         }
 
         .navlinks .box a:hover::after {
+            width: 100%;
+        }
+
+        .navlinks .box a.active {
+            color: #0056b3;
+        }
+
+        .navlinks .box a.active::after {
             width: 100%;
         }
 
@@ -213,12 +228,95 @@
             line-height: 1.5;
         }
 
-        .main-footer {
-            text-align: center;
-            padding: 2rem;
+        footer {
             background-color: #cfe7ff;
             margin-top: 2rem;
+            padding: 1rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-section h4 {
             color: #1f3b4c;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            text-decoration: none;
+            color: #1f3b4c;
+            font-size: 0.85rem;
+            transition: transform 0.2s ease, color 0.2s;
+        }
+
+        .footer-social-links a:hover {
+            transform: scale(1.05);
+            color: #0056b3;
+        }
+
+        .footer-social-links img {
+            height: 20px;
+            width: 20px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: row;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .contact-item img {
+            height: 18px;
+            width: 18px;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: #1f3b4c;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: #0056b3;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(31, 59, 76, 0.2);
+            color: #1f3b4c;
+            font-size: 0.75rem;
         }
 
         /* Media Query - Responsive */
@@ -253,6 +351,18 @@
                 justify-content: center;
                 margin-top: 0.25rem;
             }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
         }
 
         @media (max-width: 620px) {
@@ -273,6 +383,10 @@
             .project-card h3 {
                 font-size: 1.3rem;
             }
+
+            footer {
+                padding: 0.8rem 1rem;
+            }
         }
     </style>
 </head>
@@ -290,20 +404,20 @@
                     <div class="box"><a href="index.html">Home</a></div>
                     <div class="box"><a href="about.html">About</a></div>
                     <div class="box"><a href="skills.html">Skills</a></div>
-                    <div class="box"><a href="projects.html">Projects</a></div>
+                    <div class="box"><a href="projects.html" class="active">Projects</a></div>
                     <div class="box"><a href="contact.html">Contact</a></div>
                 </div>
 
                 <!-- right side: social media icons -->
                 <div class="socials">
-                    <a href="https://www.facebook.com/itai.vera.2025/" target="_blank" rel="noopener noreferrer">
-                        <img src="Icons/facebook.png" alt="Facebook" style="height:25px;width:25px;">
+                    <a href="https://www.facebook.com/itai.vera.2025" target="_blank" rel="noopener noreferrer">
+                        <img src="Icons/facebook.png" alt="Facebook">
                     </a>
                     <a href="https://www.instagram.com/rourbsey21/" target="_blank" rel="noopener noreferrer">
-                        <img src="Icons/instagram.png" alt="Instagram" style="height:25px;width:25px;">
+                        <img src="Icons/instagram.png" alt="Instagram">
                     </a>
-                    <a href="https://wa.me/263713266295" target="_blank" rel="noopener noreferrer">
-                        <img src="Icons/whatsapp.png" alt="WhatsApp" style="height:25px;width:25px;">
+                    <a href="https://github.com/Itaivera21" target="_blank" rel="noopener noreferrer">
+                        <img src="Icons/github.png" alt="GitHub">
                     </a>
                 </div>
             </nav>
@@ -312,9 +426,9 @@
 
     <main>
         <div class="hero">
-            <h1>Hi, I'm Itai Vera</h1>
-            <p>Welcome to my personal space — developer, creator, and problem solver.<br>
-            Use the navigation above to explore my work, skills, and how to reach me.</p>
+            <h1>My Projects</h1>
+            <p>Here are some of the projects I've been working on.<br>
+            Check them out and feel free to reach out if you'd like to collaborate.</p>
         </div>
 
         <!-- Projects Section - 3 in one row -->
@@ -322,37 +436,55 @@
             <div class="project-card">
                 <h3>Innovation Hub Digital Platform</h3>
                 <p>A web-based collaboration platform for university students to connect, build projects, and showcase their work across faculties.</p>
-                <footer>
-                    <a href="https://innovation-hub3.onrender.com/" target="_blank" rel="noopener noreferrer">
-                        <button class="pill">View Project</button>
-                    </a>  
-                </footer>
+                <a href="https://innovation-hub-cxhq.onrender.com" target="_blank" rel="noopener noreferrer">
+                    <button class="pill">View Project</button>
+                </a>
             </div>
 
             <div class="project-card">
                 <h3>My Portfolio</h3>
                 <p>This portfolio showcases my web development projects, skills, and passion for building clean, functional websites — a space for employers and collaborators to explore my work and connect with me.</p>
-                <footer>
-                    <a href="https://innovation-hub3.onrender.com/" target="_blank" rel="noopener noreferrer">
-                        <button class="pill">View Project</button>
-                    </a>  
-                </footer>
+                <a href="https://itaivera21.github.io/My-Portfolio/" target="_blank" rel="noopener noreferrer">
+                    <button class="pill">View Project</button>
+                </a>
             </div>
 
             <div class="project-card">
                 <h3>School Portal</h3>
                 <p>A school management portal currently in development for schools back home — designed to streamline administration, student results, and communication between teachers, parents, and students.</p>
-                <footer>
-                    <a href="#" onclick="return false;">
-                        <button class="pill">Project in Progress</button>
-                    </a>  
-                </footer>
+                <button class="pill" style="opacity:0.7; cursor:not-allowed;">In Progress</button>
             </div>
         </div>
     </main>
 
-    <footer class="main-footer">
-        <p>© 2026 Itai Vera. All rights reserved.</p>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Follow me</h4>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/itai.vera.2025"><img src="Icons/facebook.png" alt="Facebook"> Facebook</a>
+                    <a href="https://www.instagram.com/rourbsey21/"><img src="Icons/instagram.png" alt="Instagram"> Instagram</a>
+                    <a href="https://github.com/Itaivera21"><img src="Icons/github.png" alt="Github"> GitHub</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Get in touch</h4>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <img src="Icons/whatsapp.png" alt="WhatsApp">
+                        <a href="https://wa.me/263713266195" target="_blank">WhatsApp</a>
+                    </div>
+                    <div class="contact-item">
+                        <img src="Icons/gmail.png" alt="Gmail">
+                        <a href="mailto:itaivera21@gmail.com">itaivera21@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© Itai Vera 2026</p>
+        </div>
     </footer>
 </body>
 </html>
